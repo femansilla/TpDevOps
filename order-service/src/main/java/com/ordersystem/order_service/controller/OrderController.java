@@ -1,37 +1,35 @@
-package com.ordersystem.inventoryservice.controller;
+package com.ordersystem.orderservice.controller;
 
-import com.ordersystem.inventoryservice.model.InventoryItem;
-import com.ordersystem.inventoryservice.service.InventoryService;
+import com.ordersystem.orderservice.model.Order;
+import com.ordersystem.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/inventory")
-public class InventoryController {
+@RequestMapping("/api/orders")
+public class OrderController {
     @Autowired
-    private InventoryService inventoryService;
+    private OrderService orderService;
 
     @GetMapping
-    public List<InventoryItem> getAllItems() {
-        return inventoryService.getAllItems();
+    public List<Order> getAllOrders() {
+        return orderService.getAllOrders();
     }
 
     @GetMapping("/{id}")
-    public InventoryItem getItemById(@PathVariable String id) {
-        return inventoryService.getItemById(id);
+    public Order getOrderById(@PathVariable Long id) {
+        return orderService.getOrderById(id);
     }
 
     @PostMapping
-    public InventoryItem createItem(@RequestBody InventoryItem item) {
-        return inventoryService.createItem(item);
+    public Order createOrder(@RequestBody Order order) {
+        return orderService.createOrder(order);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteItem(@PathVariable String id) {
-        inventoryService.delete
-
-Item(id);
+    public void deleteOrder(@PathVariable Long id) {
+        orderService.deleteOrder(id);
     }
 }
