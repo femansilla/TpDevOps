@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  order-service:
+    container_name: order-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - database
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/orderservicedb
+      - SPRING_DATASOURCE_USERNAME=abc
+      - SPRING_DATASOURCE_PASSWORD=def
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+      - SPRING_JPA_SHOW-SQL=true
+    ports:
+      - 8080:8080
+    networks:
+      - internal
+
+  database:
+    platform: linux/x86_64
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=orderservicedb
+      - MYSQL_ROOT_USER=abc
+      - MYSQL_ROOT_PASSWORD=def 
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - internal
+
+networks:
+  internal:
+    name: internal

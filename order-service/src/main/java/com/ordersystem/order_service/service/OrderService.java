@@ -1,7 +1,7 @@
-package com.ordersystem.orderservice.service;
+package com.ordersystem.order_service.service;
 
-import com.ordersystem.orderservice.model.Order;
-import com.ordersystem.orderservice.repository.OrderRepository;
+import com.ordersystem.order_service.model.Order;
+import com.ordersystem.order_service.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

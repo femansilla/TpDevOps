@@ -1,7 +1,7 @@
-package com.ordersystem.orderservice.controller;
+package com.ordersystem.order_service.controller;
 
-import com.ordersystem.orderservice.model.Order;
-import com.ordersystem.orderservice.service.OrderService;
+import com.ordersystem.order_service.model.Order;
+import com.ordersystem.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
