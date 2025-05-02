@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: orderservice
+      MYSQL_USER: abc
+      MYSQL_PASSWORD: def
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: php-my-admin
+    ports:
+      - "8082:80"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - my-network
+
+  order-service:
+      container_name: order-api
+      build:
+        context: .
+        dockerfile: Dockerfile
+      # restart: always
+      links:
+        - mysql:mysql
+      depends_on:
+        - mysql
+      # environment:
+      #   - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/orderservice
+      #   - SPRING_DATASOURCE_USERNAME=abc
+      #   - SPRING_DATASOURCE_PASSWORD=def
+      #   - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
+      #   - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+      #   - SPRING_JPA_SHOW-SQL=true
+      ports:
+        - 8081:8081
+      networks:
+        - my-network
+
+networks:
+  my-network:
+    name: internal
+    driver: bridge
+
+# Volumes
+volumes:
+  db-data:
+    driver: local
