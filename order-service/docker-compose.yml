@@ -14,18 +14,20 @@ services:
     networks:
       - my-network
 
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: php-my-admin
-    ports:
-      - "8082:80"
-    depends_on:
-      - mysql
-    environment:
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-    networks:
-      - my-network
+  # phpmyadmin:
+  #   image: phpmyadmin:latest
+  #   container_name: php-my-admin
+  #   ports:
+  #     - "8082:80"
+  #   links:
+  #     - mysql:mysql
+  #   depends_on:
+  #     - mysql
+  #   environment:
+  #     SPRING_DATASOURCE_USERNAME: root
+  #     SPRING_DATASOURCE_PASSWORD: root
+  #   networks:
+  #     - my-network
 
   order-service:
       container_name: order-api
@@ -52,7 +54,7 @@ services:
 networks:
   my-network:
     name: internal
-    driver: bridge
+    # driver: bridge
 
 # Volumes
 volumes:
