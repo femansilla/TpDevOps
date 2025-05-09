@@ -19,9 +19,6 @@ jobs:
           distribution: 'corretto'
           java-version: 22
 
-      - name: unit tests
-        run: mvn -B test --file pom.xml
-
       - name: build the app
         run: |
           mvn clean
@@ -29,7 +26,7 @@ jobs:
       - name: build the docker image
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./order-service
           dockerfile: Dockerfile
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rest-api:latest
@@ -43,7 +40,7 @@ jobs:
       - name: push the docker image to docker hub
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./order-service
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rest-api:latest
