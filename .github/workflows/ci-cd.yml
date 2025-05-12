@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      - uses: fawazahmed0/action-debug-vscode@main
-        with:
-            token: "root"
 
       - name: setup jdk 22
         uses: actions/setup-java@v3
@@ -22,10 +19,6 @@ jobs:
           distribution: 'corretto'
           java-version: 22
 
-      - name: build the app
-        run: |
-          mvn clean
-          mvn --batch-mode -DskipTests package --file ${{ github.workspace }}/orderservice/pom.xml
       - name: build the docker image
         uses: docker/build-push-action@v4
         with:
