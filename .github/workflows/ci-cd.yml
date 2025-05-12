@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          dockerfile: Dockerfile
+          dockerfile: ${{ github.workspace }}/orderservice/Dockerfile
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rest-api:latest
 
