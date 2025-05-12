@@ -46,7 +46,7 @@ services:
         - DATABASE_PORT=22132
         - DATABASE_NAME=defaultdb
         - DATABASE_USER=avnadmin
-        - DATABASE_PASSWORD=AVNS_udjuRIGT8yd5B2PIwo6
+        # - DATABASE_PASSWORD=AVNS_udjuRIGT8yd5B2PIwo6
       ports:
         - 8081:8081
       networks:
