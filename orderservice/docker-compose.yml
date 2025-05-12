@@ -41,12 +41,6 @@ services:
         - mysql:mysql
       depends_on:
         - mysql
-      # environment:
-      #   - DATABASE_HOST=mysql-15fd6dfe-francisco-a453.k.aivencloud.com
-      #   - DATABASE_PORT=22132
-      #   - DATABASE_NAME=defaultdb
-      #   - DATABASE_USER=avnadmin
-      #   - DATABASE_PASSWORD=AVNS_udjuRIGT8yd5B2PIwo6
       ports:
         - 8081:8081
       networks:
