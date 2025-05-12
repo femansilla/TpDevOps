@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
+      - uses: fawazahmed0/action-debug-vscode@main
+        with:
+            token: "root"
 
       - name: setup jdk 22
         uses: actions/setup-java@v3
