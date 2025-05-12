@@ -13,8 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        context: ${{ github.workspace }}/orderservice/
-        run: docker build -t rest-api .
+        run: docker build -t "./orderservice/rest-api" .
 
       - name: Log in to Render
         run: |
