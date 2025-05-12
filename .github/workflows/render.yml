@@ -12,9 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t "./orderservice/rest-api" .
-
       - name: Log in to Render
         run: |
           curl -s -X POST \
