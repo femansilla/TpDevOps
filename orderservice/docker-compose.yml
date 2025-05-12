@@ -41,13 +41,12 @@ services:
         - mysql:mysql
       depends_on:
         - mysql
-      # environment:
-      #   - SPRING_DATASOURCE_URL=jdbc:mysql://127.0.0.1:0:3306/orderservice
-      #   - SPRING_DATASOURCE_USERNAME=abc
-      #   - SPRING_DATASOURCE_PASSWORD=def
-      #   - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
-      #   - SPRING_JPA_HIBERNATE_DDL-AUTO=update
-      #   - SPRING_JPA_SHOW-SQL=true
+      environment:
+        - DATABASE_HOST=mysql-15fd6dfe-francisco-a453.k.aivencloud.com
+        - DATABASE_PORT=22132
+        - DATABASE_NAME=defaultdb
+        - DATABASE_USER=avnadmin
+        - DATABASE_PASSWORD=AVNS_udjuRIGT8yd5B2PIwo6
       ports:
         - 8081:8081
       networks:

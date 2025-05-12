@@ -1,7 +1,7 @@
-package com.ordersystem.order_service.controller;
+package com.ordersystem.orderservice.controller;
 
-import com.ordersystem.order_service.model.Order;
-import com.ordersystem.order_service.service.OrderService;
+import com.ordersystem.orderservice.model.Order;
+import com.ordersystem.orderservice.service.OrderService;
 
 import java.util.List;
 

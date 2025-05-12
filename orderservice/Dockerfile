@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Use a minimal runtime image
-FROM openjdk:22-jdk-slim
+FROM openjdk:22-jdk
 
 # Set working directory
 WORKDIR /app

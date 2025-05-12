@@ -1,6 +1,6 @@
-package com.ordersystem.order_service.repository;
+package com.ordersystem.orderservice.repository;
 
-import com.ordersystem.order_service.model.Order;
+import com.ordersystem.orderservice.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
