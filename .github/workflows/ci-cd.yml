@@ -22,7 +22,7 @@ jobs:
       - name: build the app
         run: |
           mvn clean
-          mvn --batch-mode -DskipTests package --file pom.xml
+          mvn --batch-mode -DskipTests package --file ./orderservice/pom.xml
       - name: build the docker image
         uses: docker/build-push-action@v4
         with:
