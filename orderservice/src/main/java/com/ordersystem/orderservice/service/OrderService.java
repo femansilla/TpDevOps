@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class OrderService {
+    // Autowired annotation to inject the UserRepository dependency
     @Autowired
     private OrderRepository orderRepository;
 
