@@ -8,9 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-// Spring annotation to indicate that this class is a REST controller
 @RestController
-// Base mapping for all request mappings in this controller
 @RequestMapping("/api/orders")
 public class OrderController {
     @Autowired
