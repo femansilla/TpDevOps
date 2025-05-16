@@ -1,31 +1,12 @@
 package com.ordersystem.orderservice.service;
 
 import com.ordersystem.orderservice.model.Order;
-import com.ordersystem.orderservice.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class OrderService {
-    // Autowired annotation to inject the UserRepository dependency
-    @Autowired
-    private OrderRepository orderRepository;
-
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
-    }
-
-    public Order getOrderById(Long id) {
-        return orderRepository.findById(id).orElse(null);
-    }
-
-    public Order createOrder(Order order) {
-        return orderRepository.save(order);
-    }
-
-    public void deleteOrder(Long id) {
-        orderRepository.deleteById(id);
-    }
+public interface OrderService {
+    Order createOrder(Order order);
+    List<Order> getAllOrders();
+    Optional<Order> getOrderById(long id);
+    void deleteOrder(long id);
 }
