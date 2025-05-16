@@ -24,10 +24,13 @@ services:
     depends_on:
       - mysql
     environment:
-      PMA_HOST: mysql #http://127.0.0.1:0:3306/orderservice
-      PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: root
+      # PMA_HOST: mysql #http://127.0.0.1:0:3306/orderservice
+      # PMA_PORT: 3306
+      # PMA_USER: root
+      # PMA_PASSWORD: root
+      PMA_HOST: mysql-15fd6dfe-francisco-a453.k.aivencloud.com
+      PMA_USER: avnadmin
+      PMA_PASSWORD: AVNS_udjuRIGT8yd5B2PIwo6
     networks:
       - my-network
 
