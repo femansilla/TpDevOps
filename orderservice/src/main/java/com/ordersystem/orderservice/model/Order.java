@@ -1,10 +1,12 @@
 package com.ordersystem.orderservice.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 // Lombok annotation to generate getters, setters, equals, hashCode, and toString methods
 @Data
@@ -12,6 +14,8 @@ import jakarta.persistence.*;
 @AllArgsConstructor
 // Lombok annotation to generate a no-args constructor
 @NoArgsConstructor
+// Annotates the class as a builder
+@Builder
 // Annotates the class as a JPA entity, allowing it to be mapped to a database table
 @Entity
 // Specifies the name of the database table to which this entity is mapped
@@ -23,12 +27,11 @@ public class Order {
     private Long id;
 
     @NotBlank(message = "La descripcion del producto es requerida!")
-    @Size(max = 100, message = "La descripcion del producto debe ser de 100 characteres!")
-    @Column(name = "description")
+    @Column(name = "product")
     private String product;
     @Column(name = "quantity")
     private int quantity;
-    @Column(name = "precio")
+    @Column(name = "price")
     private double price;
     
     public Order(String product, int quantity, double price) {
