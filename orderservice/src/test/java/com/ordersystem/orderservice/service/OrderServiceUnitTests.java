@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import com.ordersystem.orderservice.model.Order;
 import com.ordersystem.orderservice.repository.OrderRepository;
-import com.ordersystem.orderservice.service.OrderServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
