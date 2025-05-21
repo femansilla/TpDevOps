@@ -23,7 +23,7 @@ jobs:
         run: mvn -B package --file  ${{ github.workspace }}/orderservice/pom.xml
 
       - name: Unit Tests
-      - uses: bcgov/action-test-and-analyse-java@main
+        uses: bcgov/action-test-and-analyse-java@main
         with:
           commands: |
             mvnw test
