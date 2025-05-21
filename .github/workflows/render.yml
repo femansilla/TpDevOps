@@ -42,8 +42,8 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rest-api:latest
 
       - name: Deploy to Render
-        uses: fjogeleit/http-request-action@v1
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          url: "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploy"
-          method: 'POST'
-          bearerToken: ${{ secrets.RENDER_API_KEY }}
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+          wait-for-success: true
