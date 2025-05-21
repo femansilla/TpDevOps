@@ -25,6 +25,7 @@ jobs:
       - name: Unit Tests
         uses: bcgov/action-test-and-analyse-java@main
         with:
+          context: ${{ github.workspace }}/orderservice/
           commands: |
             ./mvnw test
           dir: ${{ github.workspace }}/orderservice/
