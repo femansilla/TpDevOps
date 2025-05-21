@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install --file ${{ github.workspace }}/orderservice/pom.xml
     
       - name: Build Docker image
         run: docker build -t rest-api:latest .
