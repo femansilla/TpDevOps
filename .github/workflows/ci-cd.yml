@@ -22,16 +22,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file  ${{ github.workspace }}/orderservice/pom.xml
 
-      - name: Unit Tests
-        uses: bcgov/action-test-and-analyse-java@main
-        with:
-          context: ${{ github.workspace }}/orderservice/
-          commands: |
-            ./mvnw test
-          dir: ${{ github.workspace }}/orderservice/
-          java-cache: maven
-          java-distribution: temurin
-          java-version: "17"
+#      - name: Unit Tests
+#        uses: bcgov/action-test-and-analyse-java@main
+#        with:
+#          commands: |
+#            ./mvnw test
+#          dir: ${{ github.workspace }}/orderservice/
+#          java-cache: maven
+#          java-distribution: temurin
+#          java-version: "17"
 
       - name: build the docker image
         uses: docker/build-push-action@v4
