@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-test-deploy:
-    name: build-test spring-api
+    name: build-test-deploy spring-api
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
@@ -43,3 +43,14 @@ jobs:
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rest-api:latest
+
+      - name: Log in to Render
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"clearCache": "clear"}' \
+            https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploy
+
+      - name: Deploy to Render
+        run: echo "Deployment triggered"
