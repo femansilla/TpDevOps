@@ -1,4 +1,4 @@
-name: build spring-api
+name: build-test-deploy spring-api
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
         uses: bcgov/action-test-and-analyse-java@main
         with:
           commands: |
-            mvnw test
+            ./mvnw test
           dir: ${{ github.workspace }}/orderservice/
           java-cache: maven
           java-distribution: temurin
