@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Use a minimal runtime image
-FROM openjdk:22-jdk
+FROM eclipse-temurin:21-jre-alpine
 
 # Set working directory
 WORKDIR /app
