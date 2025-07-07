@@ -12,9 +12,9 @@ prometheus:
           metrics_path: /actuator/prometheus
           scheme: https
           static_configs:
-            - targets: ['tu-app.onrender.com']
+            - targets: ['rest-api-iilo.onrender.com']
       remote_write:
         - url: https://prometheus-prod-10-prod-us-central-0.grafana.net/api/prom/push
           basic_auth:
-            username: <INSTANCE_ID>
-            password: <API_KEY>
+            username: "2535933"
+            password: "glc_eyJvIjoiMTQ3MzM5MiIsIm4iOiJzdGFjay0xMzA1ODQ5LWFsbG95LWdyYWZhbmEtYWdlbnQiLCJrIjoiT0tqOU9ndzgzbzE4cER0djExdzcybmkyIiwibSI6eyJyIjoicHJvZC1zYS1lYXN0LTEifX0="
