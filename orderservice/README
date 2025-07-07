@@ -1,0 +1,7 @@
+bueno, para correrlo local, el app.prop
+no tiene que tener seteado el puerto
+
+si quiero correr el docker-compose
+si lo tiene que tener, si no la imagen no la registra
+
+tengo un error cuando consulto las orders, pero bueno va a ser para despues

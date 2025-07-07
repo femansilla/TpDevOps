@@ -1,0 +1,16 @@
+# permite crear el servicio del agente en Render como background worker (ya que no expone puerto)
+
+services:
+  - type: worker
+    name: grafana-agent
+    runtime: docker
+    plan: free
+    envVars:
+      - key: APP_TARGET_URL
+        value: tu-app.onrender.com
+      - key: REMOTE_WRITE_URL
+        value: https://prometheus-prod-10-prod-us-central-0.grafana.net/api/prom/push
+      - key: REMOTE_WRITE_USERNAME
+        value: tu-instance-id
+      - key: REMOTE_WRITE_PASSWORD
+        value: tu-api-key
