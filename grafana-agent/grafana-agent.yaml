@@ -16,5 +16,5 @@ prometheus:
       remote_write:
         - url: https://prometheus-prod-10-prod-us-central-0.grafana.net/api/prom/push
           basic_auth:
-            username: "2535933"
-            password: "glc_eyJvIjoiMTQ3MzM5MiIsIm4iOiJzdGFjay0xMzA1ODQ5LWFsbG95LWdyYWZhbmEtYWdlbnQiLCJrIjoiT0tqOU9ndzgzbzE4cER0djExdzcybmkyIiwibSI6eyJyIjoicHJvZC1zYS1lYXN0LTEifX0="
+            username: ${GRAFANA_CLOUD_INSTANCE_ID}
+            password: ${GRAFANA_CLOUD_API_KEY}
