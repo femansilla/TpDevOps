@@ -1,8 +1,14 @@
 FROM grafana/agent:latest
 
-COPY grafana-agent.yaml.tmpl /etc/agent/grafana-agent.yaml.tmpl
-COPY entrypoint.sh /entrypoint.sh
+# Copiamos el config del agente
+COPY grafana-agent.yaml /etc/agent/agent.yaml
 
-RUN chmod +x /entrypoint.sh
+# Dummy HTTP server para que Render lo acepte como "web service"
+COPY dummy-server.sh /dummy-server.sh
+RUN chmod +x /dummy-server.sh
 
-CMD ["/entrypoint.sh"]
+# Port required by Render
+EXPOSE 10000
+
+# Ejecuta el agente + dummy server en paralelo
+CMD ["/bin/sh", "-c", "/dummy-server.sh & agent run --config.file=/etc/agent/agent.yaml"]
