@@ -1,0 +1,15 @@
+<configuration>
+    <springProperty scope="context" name="lokiInstanceId" source="LOKI_INSTANCE_ID"/>
+    <springProperty scope="context" name="lokiApiKey" source="LOKI_API_KEY"/>
+
+    <appender name="LOKI" class="com.github.loki4j.logback.LokiAppender">
+        <endpoint>https://logs-prod-024.grafana.net/loki/api/v1/push</endpoint>
+        <username>${lokiInstanceId}</username>
+        <password>${lokiApiKey}</password>
+        <labels>{"job":"springboot-app"}</labels>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="LOKI" />
+    </root>
+</configuration>
